@@ -1,0 +1,13 @@
+{
+  "name": "sunnyside-agency-landing-page",
+  "version": "1.0.0",
+  "description": "Sunnyside agency landing page",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "style:watch": "sass --watch --embed-sources scss:css",
+    "style": "sass --no-source-map scss:css --style compressed"
+  },
+  "author": "Francesco Vetere",
+  "license": "ISC"
+}

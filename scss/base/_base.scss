@@ -1,0 +1,12 @@
+@use "../abstracts/typography";
+
+body {
+  font-family: typography.$ff-primary-sans-serif;
+  font-weight: typography.$fw-600;
+  font-size: typography.$fs-400;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}

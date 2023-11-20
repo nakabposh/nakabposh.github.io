@@ -1,0 +1,59 @@
+@use "../abstracts/colors";
+
+.footer {
+  background-color: colors.$clr-dark-moderate-cyan;
+
+  .main-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    padding-block: 4em;
+
+    text-align: center;
+  }
+
+  &__logo {
+    width: 150px;
+    margin-bottom: 2em;
+
+    filter: brightness(0) saturate(100%) invert(38%) sepia(59%) saturate(371%)
+      hue-rotate(116deg) brightness(91%) contrast(92%);
+  }
+
+  &__nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1em 2.5em;
+
+    margin-bottom: 4em;
+
+    > a {
+      color: colors.$clr-dark-blue;
+
+      transition: 300ms color;
+
+      &:hover {
+        color: colors.$clr-white;
+      }
+    }
+  }
+
+  &__social {
+    list-style: none;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5em;
+
+    > * {
+      transition: filter 300ms;
+
+      &:hover {
+        filter: brightness(0) saturate(100%) invert(100%);
+      }
+    }
+  }
+}

@@ -1,0 +1,121 @@
+@use "../abstracts/colors";
+@use "../abstracts/typography";
+@use "../abstracts/mixins";
+
+// * Macro-layout related styles
+.hero {
+  position: relative;
+
+  min-height: 500px;
+
+  @include mixins.mq(large, up) {
+    min-height: 100vh;
+  }
+
+  &__image {
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+  }
+}
+
+// * header
+.hero__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1em;
+
+  padding-top: 2em;
+  padding-bottom: 4em;
+}
+
+.hero__nav > nav {
+  display: flex;
+  align-items: center;
+  gap: 2em 3em;
+
+  color: colors.$clr-white;
+}
+
+// * hamburger menu
+
+.hamburger-icon {
+  transition: 300ms opacity;
+
+  &:hover,
+  &--active {
+    opacity: 0.5;
+    cursor: pointer;
+  }
+
+  @include mixins.mq(large, up) {
+    display: none;
+  }
+}
+
+@include mixins.mq(large, down) {
+  .hero__header {
+    position: relative;
+  }
+
+  .hero__nav > nav {
+    position: absolute;
+    top: 6em;
+    left: 0;
+    right: 0;
+
+    flex-direction: column;
+
+    padding: 2em 1em;
+    background-color: white;
+
+    color: colors.$clr-dark-grayish-blue;
+
+    &::after {
+      content: "";
+
+      display: block;
+
+      position: absolute;
+      top: 1px;
+      right: 0;
+
+      width: 30px;
+      aspect-ratio: 1;
+      background-color: inherit;
+
+      translate: 0 -100%;
+      clip-path: polygon(100% 0, 100% 100%, 0 100%);
+    }
+
+    &:not(:has(+ .hamburger-icon--active)) {
+      display: none;
+    }
+  }
+}
+
+// * title
+.hero__title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2em;
+
+  font-family: typography.$ff-primary-serif;
+  font-size: typography.$fs-800;
+  font-size: typography.$fw-900;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 0.175em;
+  color: colors.$clr-white;
+
+  @include mixins.mq(large, up) {
+    font-size: typography.$fs-900;
+  }
+}
